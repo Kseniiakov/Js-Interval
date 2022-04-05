@@ -2,22 +2,21 @@
 
 const seasonImg = document.querySelector('#image');
 
+const imgs = [
+    './imgs/spring.jpg',
+    './imgs/summer.jpg',
+    './imgs/fall.jpg',
+    './imgs/winter.jpg',
+];
+
+let currentSlide = 0;
+
 setInterval(() => {
-    let src = seasonImg.getAttribute('src');
 
-    if(src === './imgs/spring.jpg') {
-        seasonImg.setAttribute('src', './imgs/summer.jpg');
-    };
-    
-    if(src === './imgs/summer.jpg') {
-        seasonImg.setAttribute('src', './imgs/fall.jpg');
-    };
-
-    if(src === './imgs/fall.jpg') {
-        seasonImg.setAttribute('src', './imgs/winter.jpg');
-    };
-    
-    if(src === './imgs/winter.jpg') {
-        seasonImg.setAttribute('src', './imgs/spring.jpg');
-    };
+    if(currentSlide === imgs.length - 1) {
+        currentSlide  = 0;
+    } else {
+        currentSlide++;
+    }
+    seasonImg.setAttribute('src', imgs[currentSlide]);
 }, 5000);
